@@ -1,16 +1,21 @@
 ﻿<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>Shooping Karo</title>
-    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s" />
+    <link rel="icon" type="image/x-icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./StyleSheet1.css" />
     <script src="./app.js"></script>
 </head>
+
 <body>
 
     <header>
@@ -18,8 +23,7 @@
         <!--this is the intro of web-->
 
         <div class="container-fluid p-5 text-white text-end  bg-dark" id="con">
-            <button class="btn btn-outline-dark position-relative "
-                    data-bs-toggle="offcanvas" data-bs-target="#canva">
+            <button class="btn btn-outline-dark position-relative " data-bs-toggle="offcanvas" data-bs-target="#canva">
                 <i class="fa-solid fa-bars"></i>
 
             </button>
@@ -36,59 +40,99 @@
 
 
             <div class="text-end">
-                <button class="btn btn-outline-primary me-2 position-relative" data-bs-toggle="modal" data-bs-target="#login">
+                <button class="btn btn-outline-primary me-2 position-relative" data-bs-toggle="modal"
+                    data-bs-target="#login">
                     Log In
-                    <span class="spinner-grow spinner-grow-sm ms-1" data-bs-toggle="tooltip" title="If you have an account, you can log in"></span>
+                    <span class="spinner-grow spinner-grow-sm ms-1" data-bs-toggle="tooltip"
+                        title="If you have an account, you can log in"></span>
                 </button>
-                <button class="btn btn-outline-success position-relative" data-bs-toggle="modal" data-bs-target="#signup">
+                <button class="btn btn-outline-success position-relative" data-bs-toggle="modal"
+                    data-bs-target="#signup">
                     Sign Up
-                    <span class="spinner-grow spinner-grow-sm ms-1" data-bs-toggle="tooltip" title="Create a new account"></span>
+                    <span class="spinner-grow spinner-grow-sm ms-1" data-bs-toggle="tooltip"
+                        title="Create a new account"></span>
                 </button>
             </div>
         </div>
 
         <!--this is my navbar-->
 
-        <div class="m-3 container  bg-light jq rounded-pill sticky-top position-relative ">
-            <nav class="navbar navbar-expand-sm navbar-muted  opacity-70 border-1 shadow-lg rounded-pill ">
-                <div class="container">
+        <div class="container-fluid sticky-top mt-4 mb-5 border rounded-pill jq ">
+            <nav class="navbar navbar-expand-lg navbar-light shadow-lg  border rounded-pill ">
+                <div class="container-fluid">
 
-                    <!-- Logo  -->
-                    <a class="navbar-brand d-flex align-items-center" href="">
+                    <a class="navbar-brand d-flex align-items-center" href="#">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s"
-                             alt="Logo"
-                             class="rounded-pill me-2"
-                             style="width:40px;">
-                        <span></span>
-
+                            alt="Logo" class="rounded-circle" style="width:40px; height:40px; object-fit: cover;">
                     </a>
 
-                    <!-- Mobile toggle button -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
-                    <!-- Navbar links -->
-                    <div class="collapse navbar-collapse px-5" id="navbarContent">
-                        <ul class="navbar-nav ms-auto">
+                    <div class="collapse navbar-collapse" id="navbarContent">
+
+                        <form class="d-flex ms-lg-4 my-2 my-lg-0 shadow-sm rounded-pill overflow-hidden border">
+                            <div class="input-group border-0">
+                            <!-- LIVE SEARCH BAR -->
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="input-group shadow-sm">
+        <span class="input-group-text bg-white border-end-0">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          class="form-control border-start-0"
+          placeholder="Search by name, category or ID..."
+          oninput="searchProducts()"
+        />
+      </div>
+      <small class="text-muted ms-1">
+        Type anything… results update automatically
+      </small>
+    </div>
+  </div>
+</div>
+
+                            </div>
+                        </form>
+
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                             <li class="nav-item">
-                                <a class="nav-link" href="#bootstarp">Bootstrap</a>
+                                <a class="nav-link px-3 text-secondary" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#Jquery">JQuery</a>
+                                <a class="nav-link px-3  text-secondary" href="./cart.html">cart</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#javaScript">JavaScript</a>
+                                <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#wishlistModal">wishList</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="https://www.prudentcorporate.com/investorrelation">Investor Relations</a>
+                                <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#ordersModal">orderList</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">More</a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="https://www.prudentcorporate.com/group">The Group</a></li>
-                                    <li><a class="dropdown-item" href="https://www.prudentcorporate.com/group#LeaderShip">Leadership Team</a></li>
-                                    <li><a class="dropdown-item" href="https://www.prudentcorporate.com/privatewealth">Private Wealth</a></li>
+
+
+                            <li class="nav-item dropdown ms-lg-3">
+                                <button class="nav-link btn btn-outline-dark rounded-pill px-4 shadow-sm"
+                                    id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    More
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg mt-3 rounded-4">
+                                    <li><a class="dropdown-item py-2" href="https://www.prudentcorporate.com/group">The
+                                            Group</a></li>
+                                    <li><a class="dropdown-item py-2"
+                                            href="https://www.prudentcorporate.com/group#LeaderShip">Leadership Team</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item py-2  "
+                                            href="https://www.prudentcorporate.com/privatewealth">Private Wealth</a>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -98,6 +142,7 @@
             </nav>
         </div>
     </header>
+
     <!-- login.html -->
     <div class="modal fade" id="login" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -112,13 +157,15 @@
                     <form>
                         <!-- Email -->
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control rounded-3 jq" id="email" placeholder="name@example.com" required>
+                            <input type="email" class="form-control rounded-3 jq" id="email"
+                                placeholder="name@example.com" required>
                             <label for="email">Email address</label>
                         </div>
 
                         <!-- Password -->
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control rounded-3 jq" id="pwd" placeholder="Password" required>
+                            <input type="password" class="form-control rounded-3 jq" id="pwd" placeholder="Password"
+                                required>
                             <label for="pwd">Password</label>
                         </div>
 
@@ -129,7 +176,8 @@
                         <div class="text-center mt-3">
                             <small class="text-muted">
                                 Don't have an account?
-                                <a href="#" class="text-secondary" data-bs-toggle="modal" data-bs-target="#signup" data-bs-dismiss="modal">Sign Up</a>
+                                <a href="#" class="text-secondary" data-bs-toggle="modal" data-bs-target="#signup"
+                                    data-bs-dismiss="modal">Sign Up</a>
                             </small>
                         </div>
                     </form>
@@ -151,19 +199,22 @@
                     <form>
                         <!-- Name -->
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control rounded-3 jq" id="name" placeholder="Full Name" required>
+                            <input type="text" class="form-control rounded-3 jq" id="name" placeholder="Full Name"
+                                required>
                             <label for="name">Full Name</label>
                         </div>
 
                         <!-- Email -->
                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control rounded-3 jq" id="email-signup" placeholder="name@example.com" required>
+                            <input type="email" class="form-control rounded-3 jq" id="email-signup"
+                                placeholder="name@example.com" required>
                             <label for="email-signup">Email address</label>
                         </div>
 
                         <!-- Password -->
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control rounded-3 jq" id="pwd-signup" placeholder="Password" required>
+                            <input type="password" class="form-control rounded-3 jq" id="pwd-signup"
+                                placeholder="Password" required>
                             <label for="pwd-signup">Password</label>
                         </div>
 
@@ -176,7 +227,8 @@
                         <div class="text-center mt-3">
                             <small class="text-muted">
                                 Already have an account?
-                                <a href="#" class="text-success" data-bs-toggle="modal" data-bs-target="#login" data-bs-dismiss="modal">Login</a>
+                                <a href="#" class="text-success" data-bs-toggle="modal" data-bs-target="#login"
+                                    data-bs-dismiss="modal">Login</a>
                             </small>
                         </div>
                     </div>
@@ -184,188 +236,243 @@
             </div>
         </div>
     </div>
-    <div class="offcanvas offcanvas-end bg-light text-dark shadow-lg" id="canva" style="width: 360px;">
+    <div class="offcanvas offcanvas-end" id="canva" style="width:360px; background:#f8f9fa;">
 
-        <!-- Header -->
-        <div class="offcanvas-header border-bottom py-4">
-            <h5 class="offcanvas-title d-flex align-items-center">
-                <i class="fa-solid fa-user-circle fs-3 me-2 text-primary"></i>
-                My Account
-            </h5>
+        <!-- HEADER -->
+        <div class="offcanvas-header border-bottom border-secondary py-4">
+            <div>
+                <h5 class="mb-0 fw-bold text-dark">Shopping Karo</h5>
+                <small class="text-secondary">Personal Dashboard</small>
+            </div>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
         </div>
 
-        <div class="offcanvas-body d-flex flex-column p-4">
+        <div class="offcanvas-body d-flex flex-column p-4 gap-4">
 
-            <!-- USER DETAILS -->
-            <div class="mb-4 p-3 rounded-4 bg-white border shadow-sm">
-
-                <p class="small text-uppercase fw-bold text-secondary mb-2">
-                    Account Details
-                </p>
-
-                <h6 class="mb-1">John Doe</h6>
-                <p class="small text-muted mb-2">john.doe@email.com</p>
-
-                <div class="d-flex justify-content-between small mb-3">
-                    <span class="text-muted">Phone</span>
-                    <span>+91 98765 43210</span>
-                </div>
-
-                <div class="d-flex justify-content-between small mb-3">
-                    <span class="text-muted">Member Since</span>
-                    <span>Jan 2024</span>
-                </div>
-
-                <div class="d-flex justify-content-between small mb-3">
-                    <span class="text-muted">Wallet Balance</span>
-                    <span class="text-success fw-bold">₹1,200</span>
-                </div>
-
-                <div class="d-flex gap-2 mt-3">
-                    <button class="btn btn-outline-primary btn-sm w-50 rounded-pill">
-                        Edit Profile
-                    </button>
-                    <button class="btn btn-outline-danger btn-sm w-50 rounded-pill">
-                        Logout
-                    </button>
-                </div>
-            </div>
-            <div class="mb-4 p-3 rounded-4 bg-white border shadow-sm text-center">
-
-                <p class="small text-uppercase fw-bold text-secondary mb-1">
-                    Guest User
-                </p>
-
-                <p class="small text-muted mb-3">
-                    Sign in to view your orders, wishlist & exclusive offers
-                </p>
-
-                <button class="btn btn-primary btn-sm rounded-pill w-100"
-                        data-bs-toggle="modal" data-bs-target="#login">
-                    Sign In / Register
-                </button>
-
-            </div>
-
-
-            <!-- QUICK STATS -->
-            <div class="row text-center mb-4">
-                <div class="col">
-                    <h6 class="mb-0">12</h6>
-                    <small class="text-muted">Orders</small>
-                </div>
-                <div class="col">
-                    <h6 class="mb-0">5</h6>
-                    <small class="text-muted">Wishlist</small>
-                </div>
-                <div class="col">
-                    <h6 class="mb-0 text-success">₹1,200</h6>
-                    <small class="text-muted">Wallet</small>
-                </div>
-            </div>
-
-            <!-- SHOP -->
-            <h6 class="text-uppercase fw-bold text-secondary small mb-3">Shop</h6>
-            <div class="list-group list-group-flush mb-4">
-
-                <a href="#" class="list-group-item list-group-item-action border-0 px-0">
-                    <i class="fa-solid fa-box me-3 text-primary"></i> My Orders
-                </a>
-
-                <a href="#" class="list-group-item list-group-item-action border-0 px-0">
-                    <i class="fa-solid fa-heart me-3 text-danger"></i> Wishlist
-                </a>
-
-                <a href="#" class="list-group-item list-group-item-action border-0 px-0">
-                    <i class="fa-solid fa-truck me-3 text-secondary"></i> Track Order
-                </a>
-
-                <a href="#" class="list-group-item list-group-item-action border-0 px-0">
-                    <i class="fa-solid fa-location-dot me-3 text-secondary"></i> Address Book
-                </a>
-            </div>
-
-            <!-- SETTINGS -->
-            <h6 class="text-uppercase fw-bold text-secondary small mb-3">Settings</h6>
-            <ul class="list-unstyled mb-4">
-                <li class="mb-3">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <i class="fa-solid fa-bell me-3 text-secondary"></i> Notifications
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <i class="fa-solid fa-wallet me-3 text-secondary"></i> Payment Methods
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a href="#" class="text-decoration-none text-dark">
-                        <i class="fa-solid fa-headset me-3 text-secondary"></i> Help & Support
-                    </a>
-                </li>
-            </ul>
-
-            <!-- OFFER -->
-            <div class="mt-auto">
-                <div class="card border-0 rounded-4 text-center shadow-sm bg-primary text-white">
-                    <div class="card-body">
-                        <p class="small mb-1">🔥 Limited Deal</p>
-                        <h5 class="fw-bold">20% OFF</h5>
-                        <p class="small opacity-75">Code: SHOP20</p>
-                        <button class="btn btn-light btn-sm w-100 rounded-pill fw-bold">
-                            Apply Coupon
-                        </button>
+            <!-- PROFILE CARD -->
+            <div class="p-3 rounded-4" style="background:rgba(255,255,255,0.9); backdrop-filter:blur(8px);">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center"
+                        style="width:48px;height:48px;font-weight:600;">
+                        JD
+                    </div>
+                    <div>
+                        <div class="fw-semibold text-dark">John Doe</div>
+                        <small class="text-secondary">john.doe@email.com</small>
                     </div>
                 </div>
 
-                <p class="small text-muted text-center mt-3 mb-0">
+                <div class="d-flex justify-content-between small text-secondary mb-3">
+                    <span>Wallet</span>
+                    <span class="fw-semibold text-success">₹1,200</span>
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-dark btn-sm w-50 rounded-pill">Profile</button>
+                    <button class="btn btn-outline-danger btn-sm w-50 rounded-pill">Logout</button>
+                </div>
+            </div>
+
+            <!-- QUICK ACTIONS -->
+            <div>
+                <small class="text-uppercase text-secondary fw-semibold">Quick Access</small>
+
+                <div class="list-group list-group-flush mt-2">
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0"
+                        data-bs-toggle="modal" data-bs-target="#ordersModal">
+                        📦 <span class="ms-2">My Orders</span>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0"
+                        data-bs-toggle="modal" data-bs-target="#wishlistModal">
+                        ❤️ <span class="ms-2">Wishlist</span>
+                    </a>
+
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0">
+                        📍 <span class="ms-2">Addresses</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- SUPPORT -->
+            <div>
+                <small class="text-uppercase text-secondary fw-semibold">Support</small>
+
+                <div class="list-group list-group-flush mt-2">
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0">
+                        🔔 <span class="ms-2">Notifications</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0">
+                        💳 <span class="ms-2">Payments</span>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0">
+                        🛟 <span class="ms-2">Help Center</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-auto text-center">
+                <div class="p-3 rounded-4" style="background:rgba(0,0,0,0.05);">
+                    <p class="mb-1 fw-semibold text-dark">🔥 Limited Offer</p>
+                    <p class="small text-secondary mb-2">Use code <b>SHOP20</b></p>
+                    <button class="btn btn-warning btn-sm rounded-pill w-100 fw-bold">
+                        Apply Coupon
+                    </button>
+                </div>
+
+                <small class="text-secondary d-block mt-3">
                     © 2026 Shopping Karo
-                </p>
+                </small>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="ordersModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">My Orders</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body pt-2">
+
+                    <div class="p-3 rounded-3 mb-3 bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-semibold">Order #12345</div>
+                                <small class="text-muted">Nike Shoes</small>
+                            </div>
+                            <span class="badge bg-success-subtle text-success rounded-pill px-3">
+                                Delivered
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="fw-semibold">Order #12346</div>
+                                <small class="text-muted">Smart Watch</small>
+                            </div>
+                            <span class="badge bg-warning-subtle text-warning rounded-pill px-3">
+                                In Transit
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer border-0 pt-0">
+                    <button class="btn btn-primary w-100 rounded-pill">
+                        Track Orders
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="wishlistModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 shadow">
+
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">My Wishlist</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body pt-2">
+
+                    <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3 bg-light">
+                        <div>
+                            <div class="fw-semibold">Nike Shoes</div>
+                            <small class="text-muted">Men • Sports</small>
+                        </div>
+                        <span class="fw-bold text-primary">₹4,999</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3 bg-light">
+                        <div>
+                            <div class="fw-semibold">Smart Watch</div>
+                            <small class="text-muted">Electronics</small>
+                        </div>
+                        <span class="fw-bold text-primary">₹2,999</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center p-3 rounded-3 bg-light">
+                        <div>
+                            <div class="fw-semibold">Headphones</div>
+                            <small class="text-muted">Accessories</small>
+                        </div>
+                        <span class="fw-bold text-primary">₹1,999</span>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer border-0 pt-0">
+                    <button class="btn btn-outline-primary w-100 rounded-pill">
+                        View Full Wishlist
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="wishlistModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header border-secondary">
-                    <h5 class="modal-title">My Wishlist</h5>
-                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item bg-transparent text-white">
-                            ❤️ Nike Shoes – ₹4,999
-                        </li>
-                        <li class="list-group-item bg-transparent text-white">
-                            ❤️ Smart Watch – ₹2,999
-                        </li>
-                        <li class="list-group-item bg-transparent text-white">
-                            ❤️ Headphones – ₹1,999
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="ordersModal">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content bg-dark text-white">
-                <div class="modal-header border-secondary">
-                    <h5 class="modal-title">My Orders</h5>
-                    <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <p>📦 Order #12345 – <span class="text-success">Delivered</span></p>
-                    <p>🚚 Order #12346 – <span class="text-warning">In Transit</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
+     <div class="row" id="productContainer"></div>
 
     <div id="f2" class="d-flex flex-row flex-wrap"></div>
 
+    <!-- FOOTER -->
+    <footer class="bg-light text-dark mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <!-- About -->
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">Shopping Karo</h6>
+                    <p class="small text-secondary">
+                        Your one-stop online shopping platform for everything you love!
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">Quick Links</h6>
+                    <ul class="list-unstyled small">
+                        <li><a href="#" class="text-secondary text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none">cart</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none" data-bs-target="#ordersModal"
+                                data-bs-toggle="modal">Orders</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none" data-bs-target="#wishlistModal"
+                                data-bs-toggle="modal">Wishlist</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-md-4 mb-3">
+                    <h6 class="fw-bold">Contact Us</h6>
+                    <p class="small text-secondary mb-1">📧 support@shoppingkaro.com</p>
+                    <p class="small text-secondary mb-1">📞 +91 98765 43210</p>
+                    <div class="d-flex gap-2 mt-2">
+                        <a href="#" class="text-secondary fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-secondary fs-5"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-3">
+
+            <div class="text-center small text-secondary">
+                © 2026 Shopping Karo. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
 </body>
+
 </html>
