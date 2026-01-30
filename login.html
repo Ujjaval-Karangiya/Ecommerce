@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Shooping Karo</title>
+    <link rel="icon" type="image/x-icon"
+          href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./StyleSheet1.css" />
+</head>
+<body>
+
+
+    <header class="bg-dark text-white pt-5">
+        <div class="container min-vh-75 d-flex align-items-center">
+            <div class="row w-100">
+                <div class="col-md-7">
+                    <h1 class="display-3 fw-bold text-secondary">Shopping</h1>
+                    <h1 class="display-3 fw-bold text-secondary">Karo</h1>
+                    <p class="lead mt-3 pb-5">
+                        Shop smarter. Live better. Discover styles you’ll love.
+                    </p>
+                </div>
+
+                <div class="col-md-5 d-none d-md-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-bag-shopping display-1 text-secondary"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3">Welcome to Shopping Karo</h2>
+            <p class="text-muted col-md-8 mx-auto">
+                Your one-stop destination for fashion, electronics, and everyday essentials.
+                Secure checkout, fast delivery, and unbeatable prices.
+            </p>
+            <button class="btn btn-outline-primary me-2 position-relative" data-bs-toggle="modal"
+                    data-bs-target="#login">
+                Log In
+                <span class="spinner-grow spinner-grow-sm ms-1" data-bs-toggle="tooltip"
+                      title="If you have an account, you can log in"></span>
+            </button>
+            <button class="btn btn-outline-success position-relative" data-bs-toggle="modal"
+                    data-bs-target="#signup">
+                Sign Up
+                <span class="spinner-grow spinner-grow-sm ms-1" data-bs-toggle="tooltip"
+                      title="Create a new account"></span>
+            </button>
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4">
+                        <i class="fa-solid fa-truck-fast fs-1 text-primary mb-3"></i>
+                        <h5 class="fw-bold">Fast Delivery</h5>
+                        <p class="small text-muted">Quick & reliable shipping nationwide.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4">
+                        <i class="fa-solid fa-lock fs-1 text-success mb-3"></i>
+                        <h5 class="fw-bold">Secure Payments</h5>
+                        <p class="small text-muted">100% safe and encrypted transactions.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm p-4">
+                        <i class="fa-solid fa-tags fs-1 text-warning mb-3"></i>
+                        <h5 class="fw-bold">Best Deals</h5>
+                        <p class="small text-muted">Daily discounts & exclusive offers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- login.html -->
+    <div class="modal fade" id="login" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title display-6">Welcome Back</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body pt-2 pb-4">
+                    <form id="login_js" action="./index.html">
+                        <div class="form-floating mb-3">
+                            <input type="email" id="email1" name="Gemail" class="form-control rounded-3 bg-transparent border border-2 jq " placeholder="name@example.com" required>
+                            <label for="Gemail">Email</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control rounded-3 bg-transparent border border-2 jq" id="pwd" name="password"
+                                   placeholder="Password" required>
+                            <label for="pwd-signup">Password</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-secondary w-100 rounded-3 py-2 fw-bold">
+                            Login
+                        </button>
+
+                        <div class="text-center mt-3">
+                            <small class="text-muted">
+                                Don't have an account?
+                                <a href="#" class="text-secondary" data-bs-toggle="modal" data-bs-target="#signup"
+                                   data-bs-dismiss="modal">Sign Up</a>
+                            </small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signup" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title display-6">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body pt-2 pb-4">
+                    <form id="signin_js">
+                        <div class="form-floating mb-3">
+                            <input type="text" id="name1" name="fname" class="form-control rounded-3 bg-transparent border border-2 jq " placeholder="Full name" required>
+                            <label for="fname">Full name</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input type="email" id="email1" name="Gemail" class="form-control rounded-3 bg-transparent border border-2 jq " placeholder="name@example.com" required>
+                            <label for="Gemail">Email</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control rounded-3 bg-transparent border border-2 jq" id="pwd" name="password"
+                                   placeholder="Password" required>
+                            <label for="pwd-signup">Password</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-outline-success w-100 rounded-3 py-2 fw-bold">
+                            Create Account
+                        </button>
+
+                    </form>
+                    <div class="model-footer">
+                        <div class="text-center mt-3">
+                            <small class="text-muted">
+                                Already have an account?
+                                <a href="#" class="text-success" data-bs-toggle="modal" data-bs-target="#login"
+                                   data-bs-dismiss="modal">Login</a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <h6 class="fw-bold">Shopping Karo</h6>
+                    <p class="small text-secondary">
+                        Your trusted online shopping partner.
+                    </p>
+                </div>
+
+
+                <div class="col-md-4">
+                    <h6 class="fw-bold">Contact</h6>
+                    <p class="small text-secondary mb-1">📧 support@shoppingkaro.com</p>
+                    <p class="small text-secondary mb-2">📞 +91 98765 43210</p>
+                    <div class="d-flex gap-3">
+                        <i class="fa-brands fa-facebook fs-5"></i>
+                        <i class="fa-brands fa-twitter fs-5"></i>
+                        <i class="fa-brands fa-instagram fs-5"></i>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-secondary my-3">
+
+            <div class="text-center small text-secondary">
+                © 2026 Shopping Karo. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        let form = document.getElementById("signin_js");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let name = form.fname.value.trim();
+            let email = form.Gemail.value.trim();
+            let password = form.password.value;
+
+            let users = JSON.parse(localStorage.getItem("User")) || [];
+
+            let existingUser = users.find(u => u.name === name || u.email === email);
+
+            if (existingUser) {
+                alert("User Already Exists");
+                return;
+            }
+
+            users.push({ name, email, password, id: `usr-${Date.now()}` });
+            localStorage.setItem("User", JSON.stringify(users));
+
+            alert("Signup successful!");
+        });
+
+        let loginForm = document.getElementById("login_js");
+
+        loginForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let email = loginForm.email1.value.trim();
+            let password = loginForm.password.value;
+
+            let users = JSON.parse(localStorage.getItem("User"));
+
+            let user = users.find(u => u.email === email && u.password === password);
+            localStorage.setItem("CurrentUser", JSON.stringify({
+                id: user.id,
+                name: user.name,
+                email: user.email
+            }));
+            if (user) {
+                window.location.href = '/index.html';
+            } else {
+                alert('Invalid email or password');
+            }
+
+        });
+
+    </script>
+
+
+</body>
+</html>

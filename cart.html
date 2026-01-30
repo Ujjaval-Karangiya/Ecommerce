@@ -228,13 +228,11 @@
   </div>
 </footer>
 
-</body>
 <script defer>
         function loadCart() {
             const cart = JSON.parse(localStorage.getItem("myCart")) || [];
             const list = document.getElementById("cart-list");
             list.innerHTML = "";
-            let total = 0;
 
             if (cart.length === 0) {
                 list.innerHTML = `
@@ -247,8 +245,8 @@
             }
 
             cart.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
+                let itemTotal = 0;
+                item.quantity > 0 ? itemTotal = item.price * item.quantity : item.price , item.quantity=1;
 
                 list.innerHTML += `
                     <div class="row align-items-center bg-white shadow-sm rounded p-3 mb-3">
@@ -263,14 +261,14 @@
 
                         <div class="col-3 d-flex align-items-center">
                             <button class="btn btn-outline-secondary qty-btn"
-                                onclick="changeQty(${index}, -1)">−</button>
+                                onclick="changeQty(${index},-1)">−</button>
                             <span class="mx-3 fw-bold">${item.quantity}</span>
                             <button class="btn btn-outline-secondary qty-btn"
-                                onclick="changeQty(${index}, 1)">+</button>
+                                onclick="changeQty(${index},+1)">+</button>
                         </div>
-
+                         
                         <div class="col-2 fw-bold text-primary">
-                            $${itemTotal.toFixed(2)}
+                            ${itemTotal}
                         </div>
 
                         <div class="col-1 text-end">
@@ -280,7 +278,7 @@
                     </div>
                 `;
             });
-
+          
             updateTotal(total);
         }
 
@@ -311,4 +309,5 @@
 
         document.addEventListener("DOMContentLoaded", loadCart);
     </script>
+</body>
 </html>
