@@ -6,18 +6,18 @@
     <meta charset="utf-8" />
     <title>Shooping Karo</title>
     <link rel="icon" type="image/x-icon"
-          href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s" />
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./StyleSheet1.css" />
     <script src="./app.js"></script>
 
 </head>
 
-<body>
+<>
 
     <header>
 
@@ -39,20 +39,23 @@
                 </p>
             </div>
 
-            <div class="py-3 rounded-pill jq d-flex justify-content-between align-items-center container-fluid" style="background:rgba(255,255,255,0.9); backdrop-filter:blur(8px);">
-                <div class="col-sm-9 d-flex align-items-left gap-3">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF5-3YjBcXTqKUlOAeUUtuOLKgQSma2wGG1g&s" class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center jq" style="width:55px;height:55px;font-weight:600;" />
+            <div class="py-3 rounded-4 jq d-flex justify-content-between align-items-center container-fluid"
+                style="background:rgba(255,255,255,0.9); backdrop-filter:blur(8px);">
+                <div class="d-flex align-items-left gap-3">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF5-3YjBcXTqKUlOAeUUtuOLKgQSma2wGG1g&s"
+                        class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center jq"
+                        style="width:55px;height:55px;font-weight:600;" />
                     <div class="px-3">
-                        <div class="fw-semibold text-dark text-start " id="userName1">John</div>
-                        <small class="text-secondary " id="email1">john.doe@email.com</small>
+                        <div class="fw-semibold text-dark text-start fname">ujjaval</div>
+                        <small class="text-secondary user email">ujjaval@email.com</small>
                     </div>
                 </div>
-                <div class="col-sm-2 d-flex gap-2 px-4">
+                <div class="d-flex gap-2 px-4">
                     <button class="btn btn-outline-dark w-50 rounded-4" data-bs-toggle="modal"
-                            data-bs-target="#profileModal">
+                        data-bs-target="#profileModal">
                         Profile
                     </button>
-                    <a href="login.html" class="btn btn-outline-danger w-50 rounded-4 px-0" onclick="logout()">logOut</a>
+                    <a href="login.html" class="btn btn-outline-danger w-50 rounded-4" onclick="logout()">logOut</a>
                 </div>
 
             </div>
@@ -60,37 +63,21 @@
 
         <!--this is my navbar-->
 
-        <div class="container-fluid sticky-top mt-4 mb-5 border rounded-pill jq ">
-            <nav class="navbar navbar-expand-lg navbar-light shadow-lg  border rounded-pill ">
+        <div class="container-fluid sticky-top mt-4 mb-5 border rounded-4 jq p-2 ">
+            <nav class="navbar navbar-expand-lg navbar-light shadow-lg  border rounded-4 ">
                 <div class="container-fluid">
 
                     <a class="navbar-brand d-flex align-items-center" href="#">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s"
-                             alt="Logo" class="rounded-circle" style="width:40px; height:40px; object-fit: cover;">
+                            alt="Logo" class="rounded-circle" style="width:40px; height:40px; object-fit: cover;">
                     </a>
 
                     <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarContent">
+                        data-bs-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarContent">
-
-                        <form class="d-flex ms-lg-4 my-2 my-lg-0 shadow-sm rounded-pill overflow-hidden border">
-                            <div class="input-group border-0">
-                                <!-- LIVE SEARCH BAR -->
-                                <div class="row justify-content-center">
-                                    <div class="input-group shadow-sm">
-                                        <span class="input-group-text bg-white border-end-0">🔍</span>
-                                        <input type="text"
-                                               id="searchInput"
-                                               class="form-control"
-                                               placeholder="Search products..."
-                                               oninput="debouncedSearch()" />
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
 
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                             <li class="nav-item">
@@ -101,17 +88,21 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal"
-                                   data-bs-target="#wishlistModal">wishList</a>
+                                    data-bs-target="#wishlistModal">wishList</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal"
-                                   data-bs-target="#ordersModal">orderList</a>
+                                    data-bs-target="#ordersModal">orderList</a>
+                            </li>
+                            <li class="input-group shadow-sm">
+                                <a class="btn input-group-text bg-white border-end-0" data-bs-target="#search"
+                                    data-bs-toggle="modal">🔍</a>
                             </li>
 
 
                             <li class="nav-item dropdown ms-lg-3">
-                                <button class="nav-link btn btn-outline-dark rounded-pill px-4 shadow-sm"
-                                        id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button class="nav-link btn btn-outline-dark rounded-4 px-4 shadow-sm" id="moreDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     More
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-end border-0 shadow-lg mt-3 rounded-4">
@@ -123,14 +114,14 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item py-2"
-                                           href="https://www.prudentcorporate.com/group#LeaderShip">Leadership Team</a>
+                                            href="https://www.prudentcorporate.com/group#LeaderShip">Leadership Team</a>
                                     </li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
                                         <a class="dropdown-item py-2  "
-                                           href="https://www.prudentcorporate.com/privatewealth">Private Wealth</a>
+                                            href="https://www.prudentcorporate.com/privatewealth">Private Wealth</a>
                                     </li>
                                 </ul>
                             </li>
@@ -161,13 +152,14 @@
             <div class="p-3 rounded-4" style="background:rgba(255,255,255,0.9); backdrop-filter:blur(8px);">
                 <div class="d-flex align-items-center gap-3 mb-3">
                     <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center"
-                         style="width:48px;height:48px;font-weight:600;">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s"
-                             alt="Logo" class="rounded-circle" style="width:40px; height:40px; object-fit: cover;">
+                        style="width:48px;height:48px;font-weight:600;">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF5-3YjBcXTqKUlOAeUUtuOLKgQSma2wGG1g&s"
+                            class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center jq"
+                            style="width:55px;height:55px;font-weight:600;" />
                     </div>
                     <div>
-                        <div class="fw-semibold text-dark text-start " id="userName2"></div>
-                        <small class="text-secondary " id="email2"></small>
+                        <div class="fw-semibold text-dark text-start showUser fname"></div>
+                        <small class="text-secondary email " id="email2"></small>
                     </div>
                 </div>
 
@@ -177,11 +169,12 @@
                 </div>
 
                 <div class="d-flex gap-2">
-                    <button class="btn btn-outline-dark btn-sm w-50 rounded-pill" data-bs-toggle="modal"
-                            data-bs-target="#profileModal">
+                    <button class="btn btn-outline-dark btn-sm w-50 rounded-4" data-bs-toggle="modal"
+                        data-bs-target="#profileModal">
                         Profile
                     </button>
-                    <a href="login.html" class="btn btn-outline-danger w-50 rounded-4 px-0" onclick="logout()">logOut</a>
+                    <a href="login.html" class="btn btn-outline-danger btn-sm w-50 rounded-4"
+                        onclick="logout()">logOut</a>
                 </div>
             </div>
 
@@ -191,12 +184,12 @@
 
                 <div class="list-group list-group-flush mt-2">
                     <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0"
-                       data-bs-toggle="modal" data-bs-target="#ordersModal">
+                        data-bs-toggle="modal" data-bs-target="#ordersModal">
                         📦 <span class="ms-2">My Orders</span>
                     </a>
 
                     <a href="#" class="list-group-item list-group-item-action bg-transparent text-dark border-0 px-0"
-                       data-bs-toggle="modal" data-bs-target="#wishlistModal">
+                        data-bs-toggle="modal" data-bs-target="#wishlistModal">
                         ❤️ <span class="ms-2">Wishlist</span>
                     </a>
 
@@ -228,7 +221,7 @@
                 <div class="p-3 rounded-4" style="background:rgba(0,0,0,0.05);">
                     <p class="mb-1 fw-semibold text-dark">🔥 Limited Offer</p>
                     <p class="small text-secondary mb-2">Use code <b>SHOP20</b></p>
-                    <button class="btn btn-warning btn-sm rounded-pill w-100 fw-bold">
+                    <button class="btn btn-warning btn-sm rounded-4 w-100 fw-bold">
                         Apply Coupon
                     </button>
                 </div>
@@ -259,7 +252,7 @@
                                 <div class="fw-semibold">Order #12345</div>
                                 <small class="text-muted">Nike Shoes</small>
                             </div>
-                            <span class="badge bg-success-subtle text-success rounded-pill px-3">
+                            <span class="badge bg-success-subtle text-success rounded-4 px-3">
                                 Delivered
                             </span>
                         </div>
@@ -271,7 +264,7 @@
                                 <div class="fw-semibold">Order #12346</div>
                                 <small class="text-muted">Smart Watch</small>
                             </div>
-                            <span class="badge bg-warning-subtle text-warning rounded-pill px-3">
+                            <span class="badge bg-warning-subtle text-warning rounded-4 px-3">
                                 In Transit
                             </span>
                         </div>
@@ -280,7 +273,7 @@
                 </div>
 
                 <div class="modal-footer border-0 pt-0">
-                    <button class="btn btn-primary w-100 rounded-pill">
+                    <button class="btn btn-primary w-100 rounded-4">
                         Track Orders
                     </button>
                 </div>
@@ -288,158 +281,118 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="wishlistModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 rounded-4 shadow">
 
-                <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold">My Wishlist</h5>
-                    <button class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
 
-                <div class="modal-body pt-2">
-
-                    <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3 bg-light">
-                        <div>
-                            <div class="fw-semibold">Nike Shoes</div>
-                            <small class="text-muted">Men • Sports</small>
-                        </div>
-                        <span class="fw-bold text-primary">₹4,999</span>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center p-3 rounded-3 mb-3 bg-light">
-                        <div>
-                            <div class="fw-semibold">Smart Watch</div>
-                            <small class="text-muted">Electronics</small>
-                        </div>
-                        <span class="fw-bold text-primary">₹2,999</span>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center p-3 rounded-3 bg-light">
-                        <div>
-                            <div class="fw-semibold">Headphones</div>
-                            <small class="text-muted">Accessories</small>
-                        </div>
-                        <span class="fw-bold text-primary">₹1,999</span>
-                    </div>
-
-                </div>
-
-                <div class="modal-footer border-0 pt-0">
-                    <button class="btn btn-outline-primary w-100 rounded-pill">
-                        View Full Wishlist
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
     <!-- PROFILE MODAL -->
+
+
     <div class="modal fade" id="profileModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content border-0 rounded-4 shadow">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
 
-                <!-- Header -->
-                <div class="modal-header border-0">
-                    <h5 class="col-sm-8 modal-title fw-bold">My Profile</h5>
-                    <button type="button" class="btn-close col-sm-2 px-3 text-end" data-bs-dismiss="modal"></button>
+                <div class="p-2 bg-light w-100" style="border-radius: 20px 20px 0 0;"></div>
+
+                <div class="modal-headar p-4">
+                    <div class="modal-header border-0 pb-0">
+                        <h5 class="modal-title display-6">Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+
                 </div>
-
-                <!-- Body -->
                 <div class="modal-body text-center">
-                  
-                    <div class="text-end">
-                        <a href="login.html" class="col-sm-2 btn btn-outline-danger btn-sm rounded-4 text-left " onclick="logout()">logOut</a>
-                    </div>
-                    <!-- Avatar -->
-                    <div class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center mx-auto mb-3 px-4"
-                         style="width:80px;height:80px;font-size:28px;font-weight:600;">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF6rnrO6jyaKljt1WN6SHaJKd4plPgFUopYg&s"
-                             alt="Logo" class="rounded-circle" style="width:40px; height:40px; object-fit: cover;">
-                    </div>
-
-                    <h6 class="fw-semibold mb-0 user-name"id="userName3"></h6>
-                    <small class="text-secondary user-email"id="email3"></small>
-
-                    <hr>
-
-                    <!-- Random Bio Text -->
-                    <p class="text-muted small">
-                        Passionate shopper who loves discovering new trends, grabbing the best deals,
-                        and exploring quality products across categories. Always excited for discounts
-                        and limited offers!
-                    </p>
-
-                    <!-- Random Stats -->
-                    <div class="d-flex justify-content-around mt-4">
-                        <div>
-                            <div class="fw-bold">24</div>
-                            <small class="text-secondary">Orders</small>
+                    <div class="text-center">
+                        <div class="position-relative d-inline-block mb-3">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF5-3YjBcXTqKUlOAeUUtuOLKgQSma2wGG1g&s"
+                                class="rounded-circle bg-dark text-white d-flex align-items-center justify-content-center jq"
+                                style="width:55px;height:55px;font-weight:600;" />
                         </div>
-                        <div>
-                            <div class="fw-bold">8</div>
-                            <small class="text-secondary">Wishlist</small>
-                        </div>
-                        <div>
-                            <div class="fw-bold">₹1,200</div>
-                            <small class="text-secondary">Wallet</small>
-                        </div>
+
+                        <h3 class="fw-light text-dark mb-1 fname">ujjaval</h3>
+                        <p class="text-muted fw-lighter small text-uppercase mb-4 bio" style="letter-spacing: 2px;">
+                            software developer</p>
                     </div>
 
+                    <div class="row g-3 px-2">
+                        <div class="col-6">
+                            <label class="text-muted small fw-bold text-uppercase ">Email</label>
+                            <p class="border-bottom border-light pb-1 email">ujjaval@gmail.com</p>
+                        </div>
+                        <div class="col-6">
+                            <label class="text-muted small fw-bold text-uppercase">Phone</label>
+                            <p class="border-bottom border-light pb-1 phone">+919327333522</p>
+                        </div>
+                        <div class="col-6">
+                            <label class="text-muted small fw-bold text-uppercase">DOB</label>
+                            <p class="border-bottom border-light pb-1 dob">24 / 09 / 2005</p>
+                        </div>
+                        <div class="col-6">
+                            <label class="text-muted small fw-bold text-uppercase">Location</label>
+                            <p class="border-bottom border-light pb-1 address">Dwarka</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="d-flex gap-2 m-3">
-                    <button class="btn btn-outline-warning w-50 rounded-4 px-0" data-bs-target="#update" data-bs-toggle="modal">Update Account</button>
-                    <button class="btn btn-outline-dark btn-sm w-50 rounded-pill" onclick="deleteUser()">
-                        Delete Account
-                    </button>
+                <div class="modal-footer border-0 d-flex justify-content-between px-4 pb-4">
+               <a href="login.html" class="btn btn-sm btn-outline-dark px-3 rounded-4 me-2" onclick="logout()">Log
+                        Out</a>
+                    <div>
+                       <button class="btn btn-sm btn-outline-dark px-3 rounded-4 me-2" data-bs-target="#update" data-bs-toggle="modal" onclick="loadUserData()">
+                        Update User</button>
+                      <button class="btn btn-sm btn-dark px-3 rounded-4 me-2" onclick="deleteUser()">Delete
+                        Account</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <marquee scrollamount="10"
-             behavior="scroll"
-             direction="left">
-
-        <div class="marquee-track">
-            <div class=" d-flex overflow-hidden flex-row justify-content-between" id="productContainer"></div>
-        </div>
-
-    </marquee>
 
     <div class="modal fade" id="update" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content border-0 shadow-lg rounded-4">
 
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title display-6">Update  Account</h5>
+                    <h5 class="modal-title display-6">Update Account</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <div class="modal-body pt-2 pb-4">
                     <form id="update_js">
                         <div class="form-floating mb-3">
-                            <input type="text" id="name1" name="fname" class="form-control rounded-3 bg-transparent border border-2 jq " placeholder="Full name" required>
-                            <label for="fname">Full name</label>
+                            <input type="text" id="name1" name="fname"
+                                class="form-control rounded-3 bg-transparent border-2 jq " placeholder="Full name"
+                                required>
+                            <label for="fname">Username</label>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input type="email" id="email1" name="Gemail" class="form-control rounded-3 bg-transparent border border-2 jq " placeholder="name@example.com" required>
+                            <input type="email" id="email1" name="Gemail"
+                                class="form-control rounded-3 bg-transparent border-2 jq "
+                                placeholder="name@example.com" required>
                             <label for="Gemail">Email</label>
                         </div>
-
-                        <!-- Password -->
                         <div class="form-floating mb-3">
-                            <input type="password" class="form-control rounded-3 bg-transparent border border-2 jq" id="pwd" name="password"
-                                   placeholder="Password" required>
-                            <label for="pwd-signup">Password</label>
+                            <input type="tel" id="phone" name="phone"
+                                class="form-control rounded-3 bg-transparent border-2 jq" placeholder="Phone number">
+                            <label for="phone">Phone number</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" id="dob" name="dob"
+                                class="form-control rounded-3 bg-transparent border-2 jq">
+                            <label for="dob">Date of Birth</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" id="address" name="address"
+                                class="form-control rounded-3 bg-transparent border-2 jq" placeholder="Address">
+                            <label for="address">Address</label>
                         </div>
 
-                        <button type="submit" class="btn btn-outline-warning w-100 rounded-3 py-2 fw-bold" onclick="updateuser() ">
+                        <button type="submit" class="btn btn-outline-success w-100 rounded-3 py-2 fw-bold"
+                            onclick="updateuser()">
                             Update Account
                         </button>
 
                     </form>
+
                 </div>
             </div>
         </div>
@@ -447,7 +400,38 @@
 
     <div id="f2" class="d-flex flex-row flex-wrap"></div>
 
+    <!-- SEARCH RESULT MODAL -->
+    <div class="modal fade" id="search" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content rounded-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">Search Results</h5><br />
+                    <form class="d-flex ms-lg-4 my-2 my-lg-0 shadow-sm rounded-4 overflow-hidden border">
+                        <div class="input-group border-0">
+                            <!-- LIVE SEARCH BAR -->
+                            <div class="row justify-content-center">
+                                <div class="input-group shadow-sm">
+                                    <span class="input-group-text bg-white border-end-0">🔍</span>
+                                    <input id="searchInput" oninput="debouncedSearch()" class="form-control"
+                                        placeholder="Search products...">
 
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row g-4" id="searchResultBody">
+                        <!-- results injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- FOOTER -->
     <footer class="bg-light text-dark mt-5">
         <div class="container py-4">
@@ -466,8 +450,10 @@
                     <ul class="list-unstyled small">
                         <li><a href="./index.html" class="text-secondary text-decoration-none">Home</a></li>
                         <li><a href="./cart.html" class="text-secondary text-decoration-none">cart</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal" data-bs-target="#ordersModal">Orders</a></li>
-                        <li><a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal" data-bs-target="#wishlistModal">Wishlist</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal"
+                                data-bs-target="#ordersModal">Orders</a></li>
+                        <li><a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal"
+                                data-bs-target="#wishlistModal">Wishlist</a></li>
                     </ul>
                 </div>
 
@@ -491,8 +477,23 @@
             </div>
         </div>
     </footer>
+<script>
+     function bind(className, value) {
+    let newf = document.getElementsByClassName(className);
+    for (const element of newf) {
+            element.innerHTML = value;
+        }
+};
 
 
+bind("fname", currentUser[0].name);
+bind("email", currentUser[0].email);
+bind("phone", currentUser[0].phone);
+bind("dob", currentUser[0].dob);
+bind("add", currentUser[0].address);
+bind("bio", currentUser[0].bio);
+
+</script>
 </body>
 
 </html>
