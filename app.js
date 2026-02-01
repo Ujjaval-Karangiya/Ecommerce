@@ -5,7 +5,6 @@ if (currentUser == null) {
     window.location.href = "login.html";
 }
 
-
 /* ================= FETCH PRODUCTS ================= */
 fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
@@ -51,9 +50,19 @@ function renderProducts(list) {
                         <h3 class="text-primary mb-4">$${item.price}</h3>
                         <p class="text-muted mb-4 small">${item.description}</p>
                        <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p>
-                        <div class="d-grid">
-                            <button class="btn btn-outline-dark btn-lg rounded-pill" onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')">Add to Cart</button>
+                       <div class="d-grid gap-3">
+                            <button class="btn btn-dark btn-lg rounded-pill"
+                                onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')"
+                                data-bs-dismiss="modal">
+                                🛒 Add to Cart
+                            </button>
+                        
+                            <button class="btn btn-outline-danger btn-lg rounded-pill"
+                                onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')">
+                                ❤️ Add to Wishlist
+                            </button>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -65,8 +74,6 @@ function renderProducts(list) {
 }
 
 /* ================= SEARCH (DEBOUNCED) ================= */
-
-
 function searchProducts() {
     const input = document.getElementById("searchInput");
     const value = input.value.toLowerCase().trim();
@@ -113,9 +120,18 @@ function searchProducts() {
                         <h3 class="text-primary mb-4">$${item.price}</h3>
                         <p class="text-muted mb-4 small">${item.description}</p>
                        <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p>
-                        <div class="d-grid">
-                            <button class="btn btn-outline-dark btn-lg rounded-pill" onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')">Add to Cart</button>
-                        </div>
+                       <div class="d-grid gap-3">
+                             <button class="btn btn-dark btn-lg rounded-pill"
+                                 onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')"
+                                 data-bs-dismiss="modal">
+                                 🛒 Add to Cart
+                             </button>
+                         
+                             <button class="btn btn-outline-danger btn-lg rounded-pill" data-bs-dismiss="modal"
+                                 onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')">
+                                 ❤️ Add to Wishlist
+                              </button></div>
+
                     </div>
                 </div>
             </div>
@@ -125,23 +141,41 @@ function searchProducts() {
     `).join("")
         : `<p class="text-danger text-center">No products found</p>`;
 }
-
 function debouncedSearch() {
     clearTimeout(debounceTimer);
     debounceTimer = setTimeout(searchProducts, 300);
 }
 
-
 /* ================= CART ================= */
 function addToCart(id, title, price, image) {
-    let cart = JSON.parse(localStorage.getItem("myCart")) || [];
-    let item = cart.find(p => p.id === id);
+    const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
 
-    if (item) item.qty++;
-    else cart.push({ id, title, price, image, qty: 1 });
+    if (!currentUser) {
+        alert("Please login to add items to cart");
+        window.location.href = "login.html";
+        return;
+    }
 
-    localStorage.setItem("myCart", JSON.stringify(cart));
-    alert("Added to cart 🛒");
+    const userId = currentUser.id;
+
+    // Get all carts
+    const carts = JSON.parse(localStorage.getItem("userCarts")) || {};
+
+    // Get this user's cart
+    const cart = carts[userId] || [];
+
+    // Check item
+    const item = cart.find(p => p.id === id);
+
+    if (item) {
+        item.qty++;
+    } else {
+        cart.push({ id, title, price, image, qty: 1 });
+    }
+
+    // Save back
+    carts[userId] = cart;
+    localStorage.setItem("userCarts", JSON.stringify(carts));
 }
 
 const track = document.querySelector(".marquee-track");
@@ -155,26 +189,28 @@ function logout() {
     alert("Logged out successfully 👋");
     window.location.href = "login.html";
 }
+
 function deleteUser() {
     const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
     const users = JSON.parse(localStorage.getItem("User")) || [];
 
-    if (!currentUser) return alert("No user logged in");
+    if (!currentUser) {
+        alert("No user logged in");
+        return;
+    }
 
-    const deletuser = users.filter(
-        user => {
-            user.email == "",
-                user.name == "",
-                user.password == ""
-        }
+    // Remove logged-in user
+    const updatedUsers = users.filter(
+        user => user.email !== currentUser.email
     );
 
-    localStorage.setItem("User", JSON.stringify(deletuser));
+    localStorage.setItem("User", JSON.stringify(updatedUsers));
     localStorage.removeItem("CurrentUser");
 
     alert("Your account has been deleted 🗑️");
     window.location.href = "login.html";
 }
+
 function updateuser() {
     let form = document.getElementById("update_js");
 
@@ -184,7 +220,7 @@ function updateuser() {
         e.preventDefault();
         if (!currentUser) return;
         users = users.map(user => {
-            if (user.email === currentUser[0].email) {
+            if (user.email === currentUser.email) {
                 return {
                     ...user,
                     name: form.fname.value.trim(),
@@ -207,17 +243,13 @@ function updateuser() {
     });
 }
 
-
-        function loadUserData() {
-            const form = document.getElementById("update_js");
-            const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
-
-            if (!currentUser) return;
-
-            form.fname.value = currentUser[0].name;
-            form.email1.value = currentUser[0].email;
-            form.phone.value = currentUser[0].phone;
-            form.dob.value = currentUser[0].dob;
-            form.address.value = currentUser[0].address;
-        }
- 
+function loadUserData() {
+    const form = document.getElementById("update_js");
+    const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
+    if (!currentUser) return;
+    form.fname.value = currentUser.name;
+    form.email1.value = currentUser.email;
+    form.phone.value = currentUser.phone;
+    form.dob.value = currentUser.dob;
+    form.address.value = currentUser.address;
+}
