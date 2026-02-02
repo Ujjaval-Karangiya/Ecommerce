@@ -4,8 +4,6 @@ const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
 if (currentUser == null) {
     window.location.href = "login.html";
 }
-
-/* ================= FETCH PRODUCTS ================= */
 fetch("https://fakestoreapi.com/products")
     .then(res => res.json())
     .then(data => {
@@ -14,7 +12,6 @@ fetch("https://fakestoreapi.com/products")
     })
     .catch(err => console.error(err));
 
-/* ================= RENDER PRODUCTS ================= */
 function renderProducts(list) {
     const container = document.getElementById("f2");
     container.innerHTML = "";
@@ -30,7 +27,7 @@ function renderProducts(list) {
         <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span><br/>
             <h5 class="card-title text-truncate mb-1">${item.title}</h5>
             <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p><hr/>
-            <span class="fs-5 fw-bold text-dark mb-3">$${item.price}</span>
+            <span class="fs-5 fw-bold text-dark mb-3">₹${item.price}</span>
         </div>
     </div>
 </div>
@@ -41,29 +38,30 @@ function renderProducts(list) {
             <div class="modal-header border-0"><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
             <div class="modal-body p-0">
                 <div class="row g-0">
-                    <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-5">
-                        <img src="${item.image}" class="img-fluid" style="max-height: 350px; object-fit: contain;">
+                    <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-5 rounded-5 ">
+                        <img src="${item.image}" class="img-fluid shadow" style="max-height: 350px; object-fit: contain;">
                     </div>
                     <div class="col-md-6 p-4 p-lg-5">
                         <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span>
                         <h2 class="fw-bold mb-3">${item.title}</h2>
-                        <h3 class="text-primary mb-4">$${item.price}</h3>
+                        <h3 class="text-primary mb-4">₹${item.price}</h3>
                         <p class="text-muted mb-4 small">${item.description}</p>
-                       <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p>
-                       <div class="d-grid gap-3">
+                         <sapn class="small">⭐ ${item.rating.rate} (${item.rating.count})</sapn>
+                         <span id="wishlistbtn" class="btn btn-sm btn-outline-danger rounded-5"
+                                onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')" data-bs-dismiss="modal">
+                                ❤️
+                            </span>
+                            </div>
+                       <div class="d-grid gap-3  p-4 p-lg-5">
                             <button class="btn btn-dark btn-lg rounded-pill"
                                 onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')"
                                 data-bs-dismiss="modal">
                                 🛒 Add to Cart
                             </button>
                         
-                            <button class="btn btn-outline-danger btn-lg rounded-pill"
-                                onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')">
-                                ❤️ Add to Wishlist
-                            </button>
+                          
                         </div>
-
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -73,7 +71,7 @@ function renderProducts(list) {
     });
 }
 
-/* ================= SEARCH (DEBOUNCED) ================= */
+
 function searchProducts() {
     const input = document.getElementById("searchInput");
     const value = input.value.toLowerCase().trim();
@@ -121,17 +119,18 @@ function searchProducts() {
                         <p class="text-muted mb-4 small">${item.description}</p>
                        <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p>
                        <div class="d-grid gap-3">
+                             <span class="btn btn-outline-danger btn-lg rounded-pill" data-bs-dismiss="modal"
+                                 onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')">
+                                 ❤️ Add to Wishlist
+                              </sapn>
+
                              <button class="btn btn-dark btn-lg rounded-pill"
                                  onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')"
                                  data-bs-dismiss="modal">
                                  🛒 Add to Cart
                              </button>
+                              </div>
                          
-                             <button class="btn btn-outline-danger btn-lg rounded-pill" data-bs-dismiss="modal"
-                                 onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')">
-                                 ❤️ Add to Wishlist
-                              </button></div>
-
                     </div>
                 </div>
             </div>
@@ -146,7 +145,6 @@ function debouncedSearch() {
     debounceTimer = setTimeout(searchProducts, 300);
 }
 
-/* ================= CART ================= */
 function addToCart(id, title, price, image) {
     const currentUser = JSON.parse(localStorage.getItem("CurrentUser"));
 
@@ -158,13 +156,10 @@ function addToCart(id, title, price, image) {
 
     const userId = currentUser.id;
 
-    // Get all carts
     const carts = JSON.parse(localStorage.getItem("userCarts")) || {};
 
-    // Get this user's cart
     const cart = carts[userId] || [];
 
-    // Check item
     const item = cart.find(p => p.id === id);
 
     if (item) {
@@ -173,10 +168,36 @@ function addToCart(id, title, price, image) {
         cart.push({ id, title, price, image, qty: 1 });
     }
 
-    // Save back
+  
     carts[userId] = cart;
     localStorage.setItem("userCarts", JSON.stringify(carts));
 }
+
+function addToWishlist(id, title, price, image) {
+    const user = JSON.parse(localStorage.getItem("CurrentUser"));
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || {};
+
+    if (!user) {
+        alert("Please login to add items to wishlist");
+        window.location.href = "login.html";
+        return;
+    }
+
+    const userId = user.id;
+    const userWishlist = wishlist[userId] || [];
+
+    const itemExists = userWishlist.some(item => item.id === id);
+  
+    if (itemExists) {
+        wishlist[userId] = userWishlist.filter(item => item.id !== id);
+    } else {    
+        userWishlist.push({ id, title, price, image });
+        wishlist[userId] = userWishlist;
+    }
+ 
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+}
+
 
 const track = document.querySelector(".marquee-track");
 
@@ -253,3 +274,93 @@ function loadUserData() {
     form.dob.value = currentUser.dob;
     form.address.value = currentUser.address;
 }
+
+function showorders() {
+    const user = JSON.parse(localStorage.getItem("CurrentUser"));
+    if (!user) {
+        alert("Please login first");
+        window.location.href = "login.html";
+        return;
+    }
+
+    const orderlist = JSON.parse(localStorage.getItem("Orders")) || {};
+    let order = document.getElementById("order");
+
+    if (!order) {
+        console.error("Wish container not found");
+        return;
+    }
+
+
+
+    const orderl = orderlist[user.id] || [];
+    order.innerHTML = `<div class="text-center bg-white p-5 rounded shadow-sm">
+
+      <a href="index.html" class="btn btn-dark mt-3">Continue Shopping</a>
+</div>`;
+
+    if (orderl) {
+        orderl.forEach((item) => {
+
+            order.innerHTML += `
+  <div class="row align-items-center bg-white border rounded shadow-sm p-3 mb-3">
+
+    <!-- Image -->
+    <div class="col-3 col-md-2 text-center">
+      <img src="${item.image}"
+           class="img-fluid rounded"
+           alt="${item.title}">
+    </div>
+
+    <!-- Title + Price -->
+    <div class="col-6 col-md-7">
+      <h6 class="mb-1 text-truncate">${item.title}</h6>
+
+      <div class="small text-muted">
+        Qty: <span class="fw-semibold">${item.qty}</span>
+      </div>
+
+      <div class="fw-semibold text-success mt-1">
+        ₹${(item.price * item.qty).toFixed(2)}
+      </div>
+
+      <div class="small text-muted mt-1">
+        Delivered on ${new Date(item.date).toLocaleDateString()}
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="col-3 text-end">
+      <span class="badge bg-success mb-2 w-100 py-2">
+        ✓ Delivered
+      </span>
+
+      <button class="btn btn-sm btn-outline-dark w-100" disabled>
+        Order Completed
+      </button>
+    </div>
+
+  </div>
+`;
+
+        });
+    }
+    if (!orders || orders.length === 0) {
+        order.innerHTML = `
+    <div class="bg-white border rounded shadow-sm p-5 text-center">
+      <div class="mb-3 fs-1">📦</div>
+      <h5 class="fw-semibold">No orders yet</h5>
+      <p class="text-muted mb-4">
+        You haven’t placed any orders yet.
+      </p>
+      <a href="index.html" class="btn btn-dark">
+        Start Shopping
+      </a>
+    </div>
+  `;
+        return;
+    }
+
+
+};
+
