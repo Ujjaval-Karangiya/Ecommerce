@@ -13,59 +13,115 @@ fetch("https://fakestoreapi.com/products")
     .catch(err => console.error(err));
 
 function renderProducts(list) {
+
     const container = document.getElementById("f2");
     container.innerHTML = "";
 
     list.forEach(item => {
         container.innerHTML += `
-     <div  class="col-sm-6 col-lg-3 p-3 d-flex justify-content-center " >
-    <div data-bs-toggle="modal" data-bs-target="#modal-${item.id}" class="card h-100 border-1 overflow-hidden jq " style="width: 20rem; min-height: 450px; border-radius: 20px;">
-        <div class="ratio ratio-4x3 bg-light" >
-            <img src="${item.image}" class="card-img-top p-4" style="object-fit: contain;" alt="${item.title}">
-        </div>
-        <div class="card-body d-flex flex-column p-4">
-        <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span><br/>
-            <h5 class="card-title text-truncate mb-1">${item.title}</h5>
-            <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p><hr/>
-            <span class="fs-5 fw-bold text-dark mb-3">₹${item.price}</span>
-        </div>
-    </div>
-</div>
+  <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4">
+  <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card"
+       data-bs-toggle="modal" data-bs-target="#modal-${item.id}"
+       style="width: 20rem; cursor: pointer; transition: all .3s ease;">
 
-<div class="modal fade" id="modal-${item.id}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0"><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-            <div class="modal-body p-0">
-                <div class="row g-0">
-                    <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-5 rounded-5 ">
-                        <img src="${item.image}" class="img-fluid shadow" style="max-height: 350px; object-fit: contain;">
-                    </div>
-                    <div class="col-md-6 p-4 p-lg-5">
-                        <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span>
-                        <h2 class="fw-bold mb-3">${item.title}</h2>
-                        <h3 class="text-primary mb-4">₹${item.price}</h3>
-                        <p class="text-muted mb-4 small">${item.description}</p>
-                         <sapn class="small">⭐ ${item.rating.rate} (${item.rating.count})</sapn>
-                         <span id="wishlistbtn" class="btn btn-sm btn-outline-danger rounded-5"
-                                onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')" data-bs-dismiss="modal">
-                                ❤️
-                            </span>
-                            </div>
-                       <div class="d-grid gap-3  p-4 p-lg-5">
-                            <button class="btn btn-dark btn-lg rounded-pill"
-                                onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')"
-                                data-bs-dismiss="modal">
-                                🛒 Add to Cart
-                            </button>
-                        
-                          
-                        </div>
-                        </div>
-                </div>
-            </div>
-        </div>
+    <!-- Image -->
+    <div class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center">
+      <img src="${item.image}" class="img-fluid p-4" style="object-fit: contain;" alt="${item.title}">
     </div>
+
+    <!-- Body -->
+    <div class="card-body d-flex flex-column p-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="badge rounded-pill bg-dark-subtle text-dark small">
+          ${item.category}
+        </span>
+        <span class="text-black fw-semibold small">
+          ⭐ ${item.rating.rate}
+        </span>
+      </div>
+
+      <h6 class="fw-bold text-truncate mb-1" title="${item.title}">
+        ${item.title}
+      </h6>
+
+      <small class="text-muted mb-3">
+        (${item.rating.count} reviews)
+      </small>
+
+      <div class="mt-auto d-flex justify-content-between align-items-center">
+        <span class="fs-5 fw-bold text-dark">₹${item.price}</span>
+        <span class="badge bg-success-subtle text-success">In Stock</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal-${item.id}" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Product Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-0">
+        <div class="row g-0">
+
+          <!-- Image -->
+          <div class="col-md-6 bg-white d-flex align-items-center justify-content-center p-5">
+            <img src="${item.image}" class="img-fluid"
+                 style="max-height: 420px; object-fit: contain;"
+                 alt="${item.title}">
+          </div>
+
+          <!-- Info -->
+          <div class="col-md-6 bg-light p-5">
+            <span class="badge bg-dark mb-3 text-uppercase">
+              ${item.category}
+            </span>
+
+            <h3 class="fw-bold mb-3">${item.title}</h3>
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <span class="fs-3 fw-bold text-success">₹${item.price}</span>
+              <span class="badge text-dark">
+                ⭐ ${item.rating.rate}
+              </span>
+            </div>
+
+            <p class="text-muted mb-4" style="line-height: 1.7;">
+              ${item.description}
+            </p>
+
+            <!-- Actions -->
+            <div class="d-grid gap-3">
+              <button
+                class="btn btn-outline-success fw-bold"
+                onclick="OrderList(${item.id}, '${item.image}', '${item.title.replace(/'/g, "\\'")}', ${item.price}, ${item.qty=1});"data-bs-dismiss="modal">
+                ⚡ Quick Order
+              </button>
+
+              <button
+                class="btn btn-outline-dark"
+                onclick="addToCart(${item.id}, '${item.title.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')"
+                data-bs-dismiss="modal">
+                🛒 Add to Cart
+              </button>
+
+              <button
+                class="btn btn-outline-danger"
+                onclick="addToWishlist(${item.id}, '${item.title.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')"
+                data-bs-dismiss="modal">
+                ❤️ Add to Wishlist
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>`
             ;
     });
@@ -89,55 +145,111 @@ function searchProducts() {
 
     modalBody.innerHTML = results.length
         ? results.map(item => `
-        <div  class="col-sm-6 col-lg-3 p-3 d-flex justify-content-center " >
-    <div data-bs-toggle="modal" data-bs-target="#modal-${item.id}" class="card h-100 border-1 overflow-hidden jq " style="width: 20rem; min-height: 450px; border-radius: 20px;">
-        <div class="ratio ratio-4x3 bg-light" >
-            <img src="${item.image}" class="card-img-top p-4" style="object-fit: contain;" alt="${item.title}">
-        </div>
-        <div class="card-body d-flex flex-column p-4">
-        <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span><br/>
-            <h5 class="card-title text-truncate mb-1">${item.title}</h5>
-            <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p><hr/>
-            <span class="fs-5 fw-bold text-dark mb-3">$${item.price}</span>
-        </div>
-    </div>
-</div>
+  <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4">
+  <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card"
+       data-bs-toggle="modal" data-bs-target="#modal-${item.id}"
+       style="width: 20rem; cursor: pointer; transition: all .3s ease;">
 
+    <!-- Image -->
+    <div class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center">
+      <img src="${item.image}" class="img-fluid p-4" style="object-fit: contain;" alt="${item.title}">
+    </div>
+
+    <!-- Body -->
+    <div class="card-body d-flex flex-column p-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="badge rounded-pill bg-dark-subtle text-dark small">
+          ${item.category}
+        </span>
+        <span class="text-black fw-semibold small">
+          ⭐ ${item.rating.rate}
+        </span>
+      </div>
+
+      <h6 class="fw-bold text-truncate mb-1" title="${item.title}">
+        ${item.title}
+      </h6>
+
+      <small class="text-muted mb-3">
+        (${item.rating.count} reviews)
+      </small>
+
+      <div class="mt-auto d-flex justify-content-between align-items-center">
+        <span class="fs-5 fw-bold text-dark">₹${item.price}</span>
+        <span class="badge bg-success-subtle text-success">In Stock</span>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="modal fade" id="modal-${item.id}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0"><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-            <div class="modal-body p-0">
-                <div class="row g-0">
-                    <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-5">
-                        <img src="${item.image}" class="img-fluid" style="max-height: 350px; object-fit: contain;">
-                    </div>
-                    <div class="col-md-6 p-4 p-lg-5">
-                        <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span>
-                        <h2 class="fw-bold mb-3">${item.title}</h2>
-                        <h3 class="text-primary mb-4">$${item.price}</h3>
-                        <p class="text-muted mb-4 small">${item.description}</p>
-                       <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p>
-                       <div class="d-grid gap-3">
-                             <span class="btn btn-outline-danger btn-lg rounded-pill" data-bs-dismiss="modal"
-                                 onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')">
-                                 ❤️ Add to Wishlist
-                              </sapn>
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
 
-                             <button class="btn btn-dark btn-lg rounded-pill"
-                                 onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')"
-                                 data-bs-dismiss="modal">
-                                 🛒 Add to Cart
-                             </button>
-                              </div>
-                         
-                    </div>
-                </div>
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Product Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-0">
+        <div class="row g-0">
+
+          <!-- Image -->
+          <div class="col-md-6 bg-white d-flex align-items-center justify-content-center p-5">
+            <img src="${item.image}" class="img-fluid"
+                 style="max-height: 420px; object-fit: contain;"
+                 alt="${item.title}">
+          </div>
+
+          <!-- Info -->
+          <div class="col-md-6 bg-light p-5">
+            <span class="badge bg-dark mb-3 text-uppercase">
+              ${item.category}
+            </span>
+
+            <h3 class="fw-bold mb-3">${item.title}</h3>
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <span class="fs-3 fw-bold text-success">₹${item.price}</span>
+              <span class="badge text-dark">
+                ⭐ ${item.rating.rate}
+              </span>
             </div>
+
+            <p class="text-muted mb-4" style="line-height: 1.7;">
+              ${item.description}
+            </p>
+
+            <!-- Actions -->
+            <div class="d-grid gap-3">
+              <button
+                class="btn btn-outline-success fw-bold"
+                onclick="OrderList(${item.id}, '${item.image}', '${item.title.replace(/'/g, "\\'")}', ${item.price}, ${item.qty = 1});"data-bs-dismiss="modal">
+                ⚡ Quick Order
+              </button>
+
+              <button
+                class="btn btn-outline-dark"
+                onclick="addToCart(${item.id}, '${item.title.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')"
+                data-bs-dismiss="modal">
+                🛒 Add to Cart
+              </button>
+
+              <button
+                class="btn btn-outline-danger"
+                onclick="addToWishlist(${item.id}, '${item.title.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')"
+                data-bs-dismiss="modal">
+                ❤️ Add to Wishlist
+              </button>
+            </div>
+
+          </div>
         </div>
+      </div>
+
     </div>
-</div>
-    `).join("")
+  </div>
+</div>`
+          ).join("")
         : `<p class="text-danger text-center">No products found</p>`;
 }
 function debouncedSearch() {
@@ -172,6 +284,134 @@ function addToCart(id, title, price, image) {
     carts[userId] = cart;
     localStorage.setItem("userCarts", JSON.stringify(carts));
 }
+function categorylist() {
+    const select = document.getElementById("priceFilter");
+    const url = select.value;
+    console.log(url);
+
+    let fturl = fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            products = data;
+            catadata(products);
+        })
+        .catch(err => console.error(err));
+
+}
+function catadata(list) {
+    const container = document.getElementById("cataresult");
+    container.innerHTML = "";
+
+    list.forEach(item => {
+        container.innerHTML += `
+  <div class="col-sm-6 col-lg-3 d-flex justify-content-center mb-4">
+  <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden product-card"
+       data-bs-toggle="modal" data-bs-target="#modal-${item.id}"
+       style="width: 20rem; cursor: pointer; transition: all .3s ease;">
+
+    <!-- Image -->
+    <div class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center">
+      <img src="${item.image}" class="img-fluid p-4" style="object-fit: contain;" alt="${item.title}">
+    </div>
+
+    <!-- Body -->
+    <div class="card-body d-flex flex-column p-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <span class="badge rounded-pill bg-dark-subtle text-dark small">
+          ${item.category}
+        </span>
+        <span class="text-black fw-semibold small">
+          ⭐ ${item.rating.rate}
+        </span>
+      </div>
+
+      <h6 class="fw-bold text-truncate mb-1" title="${item.title}">
+        ${item.title}
+      </h6>
+
+      <small class="text-muted mb-3">
+        (${item.rating.count} reviews)
+      </small>
+
+      <div class="mt-auto d-flex justify-content-between align-items-center">
+        <span class="fs-5 fw-bold text-dark">₹${item.price}</span>
+        <span class="badge bg-success-subtle text-success">In Stock</span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal-${item.id}" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+
+      <div class="modal-header border-0">
+        <h5 class="modal-title fw-bold">Product Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-0">
+        <div class="row g-0">
+
+          <!-- Image -->
+          <div class="col-md-6 bg-white d-flex align-items-center justify-content-center p-5">
+            <img src="${item.image}" class="img-fluid"
+                 style="max-height: 420px; object-fit: contain;"
+                 alt="${item.title}">
+          </div>
+
+          <!-- Info -->
+          <div class="col-md-6 bg-light p-5">
+            <span class="badge bg-dark mb-3 text-uppercase">
+              ${item.category}
+            </span>
+
+            <h3 class="fw-bold mb-3">${item.title}</h3>
+
+            <div class="d-flex align-items-center gap-3 mb-4">
+              <span class="fs-3 fw-bold text-success">₹${item.price}</span>
+              <span class="badge text-dark">
+                ⭐ ${item.rating.rate}
+              </span>
+            </div>
+
+            <p class="text-muted mb-4" style="line-height: 1.7;">
+              ${item.description}
+            </p>
+
+            <!-- Actions -->
+            <div class="d-grid gap-3">
+              <button
+                class="btn btn-outline-success fw-bold"
+                onclick="OrderList(${item.id}, '${item.image}', '${item.title.replace(/'/g, "\\'")}', ${item.price}, ${item.qty = 1});"data-bs-dismiss="modal">
+                ⚡ Quick Order
+              </button>
+
+              <button
+                class="btn btn-outline-dark"
+                onclick="addToCart(${item.id}, '${item.title.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')"
+                data-bs-dismiss="modal">
+                🛒 Add to Cart
+              </button>
+
+              <button
+                class="btn btn-outline-danger"
+                onclick="addToWishlist(${item.id}, '${item.title.replace(/'/g, "\\'")}', ${item.price}, '${item.image}')"
+                data-bs-dismiss="modal">
+                ❤️ Add to Wishlist
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>`
+            ;
+    });
+}
+
 
 function addToWishlist(id, title, price, image) {
     const user = JSON.parse(localStorage.getItem("CurrentUser"));
@@ -345,22 +585,26 @@ function showorders() {
 
         });
     }
-    if (!orders || orders.length === 0) {
-        order.innerHTML = `
-    <div class="bg-white border rounded shadow-sm p-5 text-center">
-      <div class="mb-3 fs-1">📦</div>
-      <h5 class="fw-semibold">No orders yet</h5>
-      <p class="text-muted mb-4">
-        You haven’t placed any orders yet.
-      </p>
-      <a href="index.html" class="btn btn-dark">
-        Start Shopping
-      </a>
-    </div>
-  `;
-        return;
-    }
-
 
 };
 
+function OrderList(id, image, title, price, qty) {
+    const user = JSON.parse(localStorage.getItem("CurrentUser"));
+    const orders = JSON.parse(localStorage.getItem("Orders")) || {};
+
+    if (!user || !user.id) {
+        alert("Please login to place an order");
+        window.location.href = "login.html";
+        return;
+    }
+
+    const userId = user.id;
+    const userOrders = orders[userId] || [];
+
+    userOrders.push({ id, title, price, image, qty, date: new Date() });
+
+    orders[userId] = userOrders;
+    localStorage.setItem("Orders", JSON.stringify(orders));
+
+
+}

@@ -13,7 +13,7 @@
           integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./StyleSheet1.css" />
-    <script src="./app.js"></script>
+    <script src="app.js"></script>
 
 </head>
 <body>
@@ -76,22 +76,22 @@
                                    data-bs-toggle="modal">🔍</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link px-3 text-secondary" href="./index.html">Home</a>
+                                <a class="nav-link px-3 text-secondary" href="./index.html">Home 🏠</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link px-3  text-secondary" href="./cart.html">cart</a>
+                                <a class="nav-link px-3  text-secondary" href="./cart.html">cart 🛒</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal" onclick="openWishlist()"
-                                   data-bs-target="#wishlistModal">wishList</a>
+                                   data-bs-target="#wishlistModal">wishList ❤️</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal" onclick="showorders()"
-                                   data-bs-target="#ordersModal">orderList</a>
+                                   data-bs-target="#ordersModal">orderList 📦</a>
                             </li>
                             <li class="nav-item dropdown ms-lg-3">
-                                <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal"
-                                   data-bs-target="#category">Category</a>
+                                <a class="nav-link px-3  text-secondary fw-bold" href="#" data-bs-toggle="modal"
+                                   data-bs-target="#category"> ⁝ ⁝ ⁝</a>
                             </li>
                         </ul>
                     </div>
@@ -124,11 +124,6 @@
                         <div class="fw-semibold text-dark text-start showUser fname"></div>
                         <small class="text-secondary email " id="email2"></small>
                     </div>
-                </div>
-
-                <div class="d-flex justify-content-between small text-secondary mb-3" onclick="showorders()">
-                    <span>Orders</span>
-                    <span class="fw-semibold text-success orderlist"></span>
                 </div>
 
                 <div class="d-flex gap-2">
@@ -180,7 +175,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 rounded-4 shadow">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold">My Orders</h5>
+                    <h5 class="modal-title fw-bold">My Orders 📦</h5>
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body pt-2" id="order">
@@ -195,7 +190,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 rounded-4 shadow">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold">My wishlist</h5>
+                    <h5 class="modal-title fw-bold">My wishlist ❤️</h5>
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body container pt-2" id="wish">
@@ -215,7 +210,7 @@
 
                 <div class="modal-headar p-4">
                     <div class="modal-header border-0 pb-0">
-                        <h5 class="modal-title display-6">Profile</h5>
+                        <h5 class="modal-title display-6">Profile </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                 </div>
@@ -230,19 +225,19 @@
                         </div>
                         <div class="row g-3 px-2">
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase ">Email</label>
+                                <label class="text-muted small fw-bold text-uppercase ">Email 💌</label>
                                 <p class="border-bottom border-light pb-1 email">ujjaval@gmail.com</p>
                             </div>
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase">Phone</label>
+                                <label class="text-muted small fw-bold text-uppercase">Phone 📞</label>
                                 <p class="border-bottom border-light pb-1 phone">+919327333522</p>
                             </div>
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase">DOB</label>
+                                <label class="text-muted small fw-bold text-uppercase">DOB 🗓️</label>
                                 <p class="border-bottom border-light pb-1 dob">24 / 09 / 2005</p>
                             </div>
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase">Location</label>
+                                <label class="text-muted small fw-bold text-uppercase">Location 📍</label>
                                 <p class="border-bottom border-light pb-1 add">Dwarka</p>
                             </div>
                         </div>
@@ -321,13 +316,13 @@
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content rounded-4">
                 <div class="modal-header">
-                    <h5 class="modal-title">Search Results</h5><br />
+                    <h5 class="modal-title">Search 🔎</h5><br />
                     <form class="d-flex ms-lg-4 my-2 my-lg-0 shadow-sm rounded-4 overflow-hidden border">
                         <div class="input-group border-0">
                             <!-- LIVE SEARCH BAR -->
                             <div class="row justify-content-center">
                                 <div class="input-group shadow-sm">
-                                    <span class="input-group-text bg-white border-end-0">🔍</span>
+                                    <span class="input-group-text bg-white border-end-0">🔎</span>
                                     <input id="searchInput" oninput="debouncedSearch()" class="form-control"
                                            placeholder="Search products...">
 
@@ -404,11 +399,11 @@
                         <li><a href="./cart.html" class="text-secondary text-decoration-none">cart</a></li>
                         <li>
                             <a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal"
-                               data-bs-target="#ordersModal">Orders</a>
+                               data-bs-target="#ordersModal"onclick="openWishlist()">Orders</a>
                         </li>
                         <li>
                             <a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal"
-                               data-bs-target="#wishlistModal">Wishlist</a>
+                               data-bs-target="#wishlistModal"onclick="openWishlist()">Wishlist</a>
                         </li>
                     </ul>
                 </div>
@@ -434,169 +429,7 @@
         </div>
     </footer>
     <script>
-        function categorylist() {
-            const select = document.getElementById("priceFilter");
-            const url = select.value;
-            console.log(url);
-
-            let fturl = fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    products = data;
-                    catadata(products);
-                })
-                .catch(err => console.error(err));
-
-        }
-        function catadata(list) {
-            const container = document.getElementById("cataresult");
-            container.innerHTML = "";
-
-            list.forEach(item => {
-                container.innerHTML += `
-     <div  class="col-sm-6 col-lg-3 p-3 d-flex justify-content-center " >
-    <div data-bs-toggle="modal" data-bs-target="#modal-${item.id}" class="card h-100 border-1 overflow-hidden jq " style="width: 20rem; min-height: 450px; border-radius: 20px;">
-        <div class="ratio ratio-4x3 bg-light" >
-            <img src="${item.image}" class="card-img-top p-4" style="object-fit: contain;" alt="${item.title}">
-        </div>
-        <div class="card-body d-flex flex-column p-4">
-        <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span><br/>
-            <h5 class="card-title text-truncate mb-1">${item.title}</h5>
-            <p class="small">⭐ ${item.rating.rate} (${item.rating.count})</p><hr/>
-            <span class="fs-5 fw-bold text-dark mb-3">₹${item.price}</span>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modal-${item.id}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-            <div class="modal-header border-0"><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-            <div class="modal-body p-0">
-                <div class="row g-0">
-                    <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-5 rounded-5 ">
-                        <img src="${item.image}" class="img-fluid shadow" style="max-height: 350px; object-fit: contain;">
-                    </div>
-                    <div class="col-md-6 p-4 p-lg-5">
-                        <span class="badge bg-secondary-subtle text-secondary mb-2 text-uppercase">${item.category}</span>
-                        <h2 class="fw-bold mb-3">${item.title}</h2>
-                        <h3 class="text-primary mb-4">₹${item.price}</h3>
-                        <p class="text-muted mb-4 small">${item.description}</p>
-                         <sapn class="small">⭐ ${item.rating.rate} (${item.rating.count})</sapn>
-                         <span id="wishlistbtn" class="btn btn-sm btn-outline-danger rounded-5"
-                                onclick="addToWishlist(${item.id}, '${item.title}', ${item.price}, '${item.image}')" data-bs-dismiss="modal">
-                                ❤️
-                            </span>
-                            </div>
-                       <div class="d-grid gap-3  p-4 p-lg-5">
-                            <button class="btn btn-dark btn-lg rounded-pill"
-                                onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}')"
-                                data-bs-dismiss="modal">
-                                🛒 Add to Cart
-                            </button>
-                        
-                          
-                        </div>
-                        </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>`
-                    ;
-            });
-        }
-
-        function showorders() {
-            const user = JSON.parse(localStorage.getItem("CurrentUser"));
-            if (!user) {
-                alert("Please login first");
-                window.location.href = "login.html";
-                return;
-            }
-
-            const orderlist = JSON.parse(localStorage.getItem("Orders")) || {};
-            let order = document.getElementById("order");
-
-            if (!order) {
-                console.error("Wish container not found");
-                return;
-            }
-
-
-
-            const orderl = orderlist[user.id] || [];
-            order.innerHTML = `<div class="text-center bg-white p-5 rounded shadow-sm">
-
-      <a href="index.html" class="btn btn-dark mt-3">Continue Shopping</a>
-</div>`;
-
-            if (orderl) {
-                orderl.forEach((item) => {
-
-                    order.innerHTML += `
-  <div class="row align-items-center bg-white border rounded shadow-sm p-3 mb-3">
-
-    <!-- Image -->
-    <div class="col-3 col-md-2 text-center">
-      <img src="${item.image}"
-           class="img-fluid rounded"
-           alt="${item.title}">
-    </div>
-
-    <!-- Title + Price -->
-    <div class="col-6 col-md-7">
-      <h6 class="mb-1 text-truncate">${item.title}</h6>
-
-      <div class="small text-muted">
-        Qty: <span class="fw-semibold">${item.qty}</span>
-      </div>
-
-      <div class="fw-semibold text-success mt-1">
-        ₹${(item.price * item.qty).toFixed(2)}
-      </div>
-
-      <div class="small text-muted mt-1">
-        Delivered on ${new Date(item.date).toLocaleDateString()}
-      </div>
-    </div>
-
-    <!-- Status -->
-    <div class="col-3 text-end">
-      <span class="badge bg-success mb-2 w-100 py-2">
-        ✓ Delivered
-      </span>
-
-      <button class="btn btn-sm btn-outline-dark w-100" disabled>
-        Order Completed
-      </button>
-    </div>
-
-  </div>
-`;
-
-                });
-            }
-            if (!orders || orders.length === 0) {
-                order.innerHTML = `
-    <div class="bg-white border rounded shadow-sm p-5 text-center">
-      <div class="mb-3 fs-1">📦</div>
-      <h5 class="fw-semibold">No orders yet</h5>
-      <p class="text-muted mb-4">
-        You haven’t placed any orders yet.
-      </p>
-      <a href="index.html" class="btn btn-dark">
-        Start Shopping
-      </a>
-    </div>
-  `;
-                return;
-            }
-
-
-        };
-
-
+      
         function bind(className, value) {
             let newf = document.getElementsByClassName(className);
             for (const element of newf) {

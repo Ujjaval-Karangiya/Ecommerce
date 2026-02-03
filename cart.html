@@ -65,6 +65,7 @@
         </div>
 
         <!--this is my navbar-->
+
         <div class="container-fluid sticky-top mt-4 mb-5 border rounded-4 jq p-2 ">
             <nav class="navbar navbar-expand-lg navbar-light shadow-lg  border rounded-4 ">
                 <div class="container-fluid">
@@ -86,19 +87,17 @@
                                    data-bs-toggle="modal">🔍</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link px-3 text-secondary" href="./index.html">Home</a>
+                                <a class="nav-link px-3 text-secondary" href="./index.html">Home 🏠</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link px-3  text-secondary" href="./cart.html">cart</a>
+                                <a class="nav-link px-3  text-secondary" href="./cart.html">cart 🛒</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal" onclick="openWishlist()"
-                                   data-bs-target="#wishlistModal">wishList</a>
-                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link px-3  text-secondary" href="#" data-bs-toggle="modal" onclick="showorders()"
-                                   data-bs-target="#ordersModal">orderList</a>
+                                   data-bs-target="#ordersModal">orderList 📦</a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
@@ -148,7 +147,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 rounded-4 shadow">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold">My Orders</h5>
+                    <h5 class="modal-title fw-bold">My Orders 📦</h5>
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body pt-2" id="order">
@@ -163,7 +162,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 rounded-4 shadow">
                 <div class="modal-header border-0 pb-0">
-                    <h5 class="modal-title fw-bold">My wishlist</h5>
+                    <h5 class="modal-title fw-bold">My wishlist ❤️</h5>
                     <button class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body container pt-2" id="wish">
@@ -172,6 +171,7 @@
             </div>
         </div>
     </div>
+
 
 
     <!-- profile madel -->
@@ -183,7 +183,7 @@
 
                 <div class="modal-headar p-4">
                     <div class="modal-header border-0 pb-0">
-                        <h5 class="modal-title display-6">Profile</h5>
+                        <h5 class="modal-title display-6">Profile </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                 </div>
@@ -198,19 +198,19 @@
                         </div>
                         <div class="row g-3 px-2">
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase ">Email</label>
+                                <label class="text-muted small fw-bold text-uppercase ">Email 💌</label>
                                 <p class="border-bottom border-light pb-1 email">ujjaval@gmail.com</p>
                             </div>
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase">Phone</label>
+                                <label class="text-muted small fw-bold text-uppercase">Phone 📞</label>
                                 <p class="border-bottom border-light pb-1 phone">+919327333522</p>
                             </div>
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase">DOB</label>
+                                <label class="text-muted small fw-bold text-uppercase">DOB 🗓️</label>
                                 <p class="border-bottom border-light pb-1 dob">24 / 09 / 2005</p>
                             </div>
                             <div class="col-6">
-                                <label class="text-muted small fw-bold text-uppercase">Location</label>
+                                <label class="text-muted small fw-bold text-uppercase">Location 📍</label>
                                 <p class="border-bottom border-light pb-1 add">Dwarka</p>
                             </div>
                         </div>
@@ -286,7 +286,7 @@
         <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content rounded-4">
                 <div class="modal-header">
-                    <h5 class="modal-title">Search Results</h5><br />
+                    <h5 class="modal-title">Search 🔎</h5><br />
                     <form class="d-flex ms-lg-4 my-2 my-lg-0 shadow-sm rounded-4 overflow-hidden border">
                         <div class="input-group border-0">
                             <!-- LIVE SEARCH BAR -->
@@ -324,22 +324,7 @@
                     </p>
                 </div>
 
-                <!-- Quick Links -->
-                <div class="col-md-4 mb-3">
-                    <h6 class="fw-bold">Quick Links</h6>
-                    <ul class="list-unstyled small">
-                        <li><a href="./index.html" class="text-secondary text-decoration-none">Home</a></li>
-                        <li><a href="./cart.html" class="text-secondary text-decoration-none">cart</a></li>
-                        <li>
-                            <a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal"
-                               data-bs-target="#ordersModal">Orders</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-secondary text-decoration-none" data-bs-toggle="modal"
-                               data-bs-target="#wishlistModal">Wishlist</a>
-                        </li>
-                    </ul>
-                </div>
+     
 
                 <!-- Contact -->
                 <div class="col-md-4 mb-3">
@@ -417,10 +402,10 @@
 
             if (cart.length === 0) {
                 list.innerHTML = `
-               <div class="text-center bg-white p-5 rounded shadow-sm">
-                 <h5>Your cart is empty</h5>
-                 <a href="index.html" class="btn btn-dark mt-3">Continue Shopping</a>
-               </div>`;
+                   <div class="text-center bg-white p-5 rounded shadow-sm">
+                     <h5>Your cart is empty</h5>
+                     <a href="index.html" class="btn btn-dark mt-3">Continue Shopping</a>
+                   </div>`;
                 updateTotal(0);
                 return;
             }
@@ -430,45 +415,60 @@
                 total += itemTotal;
 
                 list.innerHTML += `
-               <div class="row align-items-center bg-white shadow-sm rounded p-3 mb-3">
-                 <div class="col-2 text-center">
-                   <img src="${item.image}" class="cart-img">
-                 </div>
+                  <div class="row align-items-center bg-white shadow-sm rounded p-3 mb-3">
 
-                 <div class="col-4">
-                   <h6 class="mb-1">${item.title}</h6>
-                   <small class="text-muted">$${item.price}</small>
-                 </div>
+      <!-- Image -->
+      <div class="col-12 col-md-2 text-center mb-2 mb-md-0">
+        <img src="${item.image}" class="img-fluid rounded" style="max-height:70px">
+      </div>
 
-                 <div class="col-3 d-flex align-items-center">
-                   <button class="btn btn-outline-secondary qty-btn"
-                     onclick="changeQty(${index}, -1)">−</button>
+      <!-- Title & price -->
+      <div class="col-12 col-md-4 mb-2 mb-md-0">
+        <h6 class="mb-1 fw-semibold text-truncate">${item.title}</h6>
+        <small class="text-muted">$${item.price}</small>
+      </div>
 
-                   <span class="mx-3 fw-bold">${item.qty}</span>
+      <!-- Quantity -->
+      <div class="col-12 col-md-3 d-flex align-items-center justify-content-md-start justify-content-center mb-2 mb-md-0">
+        <button class="btn btn-outline-secondary btn-sm"
+          onclick="changeQty(${index}, -1)">−</button>
 
-                   <button class="btn btn-outline-secondary qty-btn"
-                     onclick="changeQty(${index}, 1)">+</button>
-                 </div>
+        <span class="mx-3 fw-bold">${item.qty}</span>
 
-                 <div class="col-2 fw-bold text-primary">
-                   $${itemTotal.toFixed(2)}
-                 </div>
+        <button class="btn btn-outline-secondary btn-sm"
+          onclick="changeQty(${index}, 1)">+</button>
+      </div>
 
-                 <div class="col-1 text-end">
-                   <button class="btn btn-sm btn-outline-danger"
-             onclick="OrderList(
-          ${item.id},
-          '${item.image}',
-          '${item.title}',
-          ${item.price},
-          ${item.qty}
-),removeItem(${index})"
->Order</button>
+      <!-- Total -->
+      <div class="col-6 col-md-2 fw-bold text-primary text-center text-md-start">
+        $${itemTotal.toFixed(2)}
+      </div>
+
+      <!-- Actions -->
+      <div class="col-6 col-md-1 d-flex flex-column align-items-stretch gap-2">
+        <button
+          class="btn btn-sm btn-success"
+          onclick="OrderList(
+            ${item.id},
+            '${item.image}',
+            '${item.title}',
+            ${item.price},
+            ${item.qty}
+          ); removeItem(${index})"
+        >
+          O
+        </button>
+
+        <button
+          class="btn btn-sm btn-outline-danger"
+          onclick="removeItem(${index})"
+        >
+          X
+        </button>
+      </div>
+
 </div>
-                   <button class="btn btn-sm btn-outline-danger"
-                     onclick="removeItem(${index})">✕</button>
-                 </div>
-               </div>`;
+`;
             });
 
             updateTotal(total);
@@ -496,113 +496,45 @@
             document.getElementById("total").innerText = "$" + total.toFixed(2);
         }
 
+
         function checkout() {
-            if (getCart().length === 0) {
+            const cart = getCart();
+            const user = JSON.parse(localStorage.getItem("CurrentUser"));
+
+            if (!Array.isArray(cart) || cart.length === 0) {
                 alert("Your cart is empty");
                 return;
             }
+
+            if (!user || !user.id) {
+                alert("User not logged in");
+                return;
+            }
+
+            const orders = JSON.parse(localStorage.getItem("Orders")) || {};
+            const userId = user.id;
+
+            if (!Array.isArray(orders[userId])) {
+                orders[userId] = [];
+            }
+
+            cart.forEach(item => {
+                orders[userId].push({
+                    ...item,
+                    date: new Date().toISOString()
+                });
+            });
+
+            localStorage.setItem("Orders", JSON.stringify(orders));
 
             alert("Order placed successfully 🎉");
             saveCart([]);
             loadCart();
         }
 
+
         document.addEventListener("DOMContentLoaded", loadCart);
-        function OrderList(id, image, title, price, qty) {
-            const user = JSON.parse(localStorage.getItem("CurrentUser"));
-            const orders = JSON.parse(localStorage.getItem("Orders")) || {};
 
-            if (!user || !user.id) {
-                alert("Please login to place an order");
-                window.location.href = "login.html";
-                return;
-            }
-
-            const userId = user.id;
-            const userOrders = orders[userId] || [];
-
-            userOrders.push({ id, title, price, image, qty, date: new Date() });
-
-            orders[userId] = userOrders;
-            localStorage.setItem("Orders", JSON.stringify(orders));
-
-            alert("Item ordered successfully ✅");
-        }
-//        function showorders() {
-//            const user = JSON.parse(localStorage.getItem("CurrentUser"));
-//            if (!user) {
-//                alert("Please login first");
-//                window.location.href = "login.html";
-//                return;
-//            }
-
-//            const orderlist = JSON.parse(localStorage.getItem("Orders")) || {};
-//            let order = document.getElementById("order");
-
-//            if (!order) {
-//                console.error("Wish container not found");
-//                return;
-//            }
-
-
-
-//            const orderl = orderlist[user.id] || [];
-//            order.innerHTML = `<div class="text-center bg-white p-5 rounded shadow-sm">
-
-//              <a href="index.html" class="btn btn-dark mt-3">Continue Shopping</a>
-//</div>`;
-
-//            if (orderl) {
-//                orderl.forEach((item) => {
-
-//                    order.innerHTML += `
-//              <div class="row align-items-center bg-white border rounded shadow-sm p-3 mb-3">
-
-//                <!-- Image -->
-//                <div class="col-3 col-md-2 text-center">
-//                  <img src="${item.image}"
-//                       class="img-fluid rounded"
-//                       alt="${item.title}">
-//                </div>
-
-//                <!-- Title + Price -->
-//                <div class="col-6 col-md-7">
-//                  <h6 class="mb-1 text-truncate">${item.title}</h6>
-//                  <span class="fw-semibold text-success">₹${item.price}</span>
-//                </div>
-
-//                <!-- Actions -->
-//                <div class="col-3 text-end">
-//                  <button
-//                    class="btn btn-sm btn-dark w-100 mb-2"
-//                    onclick="addToCart(${item.id}, '${item.title}', ${item.price}, '${item.image}'),wishremove(${item.id})">
-//                    Add to Cart
-//                  </button>
-
-//                  <button
-//                    class="btn btn-sm btn-outline-danger w-100"
-//                    onclick="wishremove(${item.id})">
-//                    Remove
-//                  </button>
-//                </div>
-
-//              </div>
-//`;
-
-//                });
-//            }
-//            else {
-//                order.innerHTML = `
-//<div class="text-center bg-white p-5 rounded shadow-sm">
-//              <h5>Your cart is empty</h5>
-//              <a href="index.html" class="btn btn-dark mt-3">Continue Shopping</a>
-//</div>`;
-//                return;
-//            }
-
-
-
-//        };
     </script>
 
 </body>
