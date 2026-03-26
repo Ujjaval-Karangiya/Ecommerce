@@ -1,0 +1,6 @@
+@Shoping_Karo_HostAddress = http://localhost:5167
+
+GET {{Shoping_Karo_HostAddress}}/swagger/index.html
+Accept: application/json
+
+###
